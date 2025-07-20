@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "WhatsApp Web Locker",
+  "version": "1.0",
+  "description": "Lock WhatsApp Web with password, PIN, pattern, or fingerprint options.",
+
+  
+  "icons": {
+    "16": "icons/logo16.png",
+    "48": "icons/logo48.png",
+    "128": "icons/logo128.png"
+  },
+
+  "permissions": ["storage", "activeTab"],
+  "host_permissions": ["https://web.whatsapp.com/*"],
+
+  "content_scripts": [
+    {
+      "matches": ["https://web.whatsapp.com/*"],
+      "js": ["content.js"],
+      "css": ["style.css"]
+    }
+  ],
+
+  
+  "action": {
+    "default_icon": {
+      "16": "icons/logo16.png",
+      "48": "icons/logo48.png",
+      "128": "icons/logo128.png"
+    },
+    "default_popup": "popup.html",
+    "default_title": "WhatsApp Locker Setup"
+  }
+}

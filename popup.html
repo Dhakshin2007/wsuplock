@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>WhatsApp Locker Setup</title>
+    <style>
+      body { font-family: Arial, sans-serif; width: 300px; padding: 10px; }
+      input, select, button { width: 100%; padding: 6px; margin: 5px 0; }
+      #pattern-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 50px);
+        grid-gap: 10px;
+        justify-content: center;
+        margin: 10px 0;
+      }
+      .pattern-dot {
+        width: 50px;
+        height: 50px;
+        border: 2px solid #333;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Setup Locker</h3>
+    <label for="unlock-method">Select Unlock Method:</label>
+    <select id="unlock-method">
+      <option value="password">Password</option>
+      <option value="pin">PIN</option>
+      <option value="pattern">Pattern</option>
+      <option value="fingerprint">Fingerprint</option>
+    </select>
+    
+    <!-- For password and PIN -->
+    <div id="text-inputs">
+      <input type="password" id="new-credential" placeholder="Set credential" />
+      <input type="password" id="confirm-credential" placeholder="Confirm credential" />
+    </div>
+    
+    <!-- For pattern: display a grid to draw a pattern -->
+    <div id="pattern-setup" style="display:none;">
+      <p>Draw your pattern by clicking on the dots:</p>
+      <div id="pattern-grid"></div>
+      <button id="save-pattern">Save Pattern</button>
+    </div>
+    
+    <!-- For fingerprint: show a button to register fingerprint -->
+    <div id="fingerprint-setup" style="display:none;">
+      <p>Register your fingerprint by clicking the button below:</p>
+      <button id="register-fingerprint">Register Fingerprint</button>
+    </div>
+    
+    <button id="save-credential">Save Credential</button>
+    <p id="status"></p>
+    <hr>
+    <label>
+      <input type="checkbox" id="locker-active" />
+      Activate Locker on WhatsApp Web
+    </label>
+    <script src="popup.js"></script>
+  </body>
+</html>
